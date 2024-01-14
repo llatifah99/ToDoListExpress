@@ -12,7 +12,7 @@ db.once("open", () => console.log("we are connected "));
 app.use(express.json());
 
 const authRoutes = require("./routes/userRoutes");
-app.use("/auth", authRoutes);
+app.use("/", authRoutes);
 
 const { authenticateToken } = require("./middlewares/authMiddleware");
 
