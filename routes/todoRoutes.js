@@ -1,17 +1,21 @@
 const express = require("express");
 const router = express.Router();
 const todoController = require("../controllers/todoController");
+const { authenticateToken } = require("../middlewares/authMiddleware");
 
 // Add new todo
-router.post("/todos", todoController.addTodo);
-// Get all todos
-router.get("/todos", todoController.getAllTodos);
+router.post("/todos", authenticateToken, todoController.addTodo);
+// Get all todos in DB
+router.get("/todoall", authenticateToken, todoController.getTodoDB);
+// Get all todos user yang login
+router.get("/todos", authenticateToken, todoController.getAllTodos);
 // Get todo by ID
-router.get("/todos/:id", todoController.getTodoById);
+router.get("/todos/:id", authenticateToken, todoController.getTodoById);
 // Update todo by ID
-router.put("/todos/:id", todoController.updateTodoById);
+router.put("/todos/:id", authenticateToken, todoController.updateTodoById);
 // Delete todo by ID
-router.delete("/todos/:id", todoController.deleteTodoById);
+router.delete("/todos/:id", authenticateToken, todoController.deleteTodoById);
 // Delete all todos
-router.delete("/todos", todoController.deleteAllTodos);
+router.delete("/todos", authenticateToken, todoController.deleteAllTodos);
+router.delete("/todoall", authenticateToken, todoController.deleteAllDBTodo);
 module.exports = router;
