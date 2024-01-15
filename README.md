@@ -2,6 +2,8 @@
 
 Building Web Service &amp; RESTful API for ToDoList with Express
 
+MONGODB_URI=mongodb+srv://litalatifah99:Fatmawati_99@cluster0.8fpmtd1.mongodb.net/todolist
+
 "username": "Lita","password": "Lita01"
 "username": "jihan","password": "jihan08"
 "username": "Saddam","password": "Saddam29"
